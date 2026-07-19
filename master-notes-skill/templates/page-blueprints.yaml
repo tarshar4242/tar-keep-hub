@@ -1,0 +1,63 @@
+version: "1.0"
+blueprints:
+  cover:
+    ratio: "A4 portrait"
+    background: "ink_deep gradient-like flat field"
+    zones:
+      - {name: eyebrow, y: "6-10%", height: "4%"}
+      - {name: title, y: "11-22%", height: "12%"}
+      - {name: source_summary, y: "22-29%", height: "7%"}
+      - {name: chapter_bars, y: "30-43%", height: "14%"}
+      - {name: author_card, y: "44-55%", height: "11%"}
+      - {name: legal_note, y: "78-86%", height: "8%"}
+      - {name: cta, y: "88-96%", height: "7%"}
+
+  overview:
+    zones:
+      - {name: kicker_title, y: "5-14%"}
+      - {name: intro, y: "14-23%"}
+      - {name: map_table, y: "25-43%"}
+      - {name: outcomes_table, y: "46-70%"}
+      - {name: memory_anchor, y: "72-82%"}
+
+  compare:
+    zones:
+      - {name: kicker_title, y: "5-13%"}
+      - {name: comparison_1, y: "15-39%"}
+      - {name: example_1, y: "40-51%"}
+      - {name: comparison_2, y: "54-77%"}
+      - {name: example_2, y: "78-90%"}
+
+  matrix:
+    zones:
+      - {name: kicker_title, y: "5-13%"}
+      - {name: matrix, y: "15-42%"}
+      - {name: mnemonic, y: "44-48%"}
+      - {name: principle, y: "51-65%"}
+      - {name: pitfalls, y: "67-79%"}
+      - {name: example_prompt, y: "81-91%"}
+
+  method:
+    zones:
+      - {name: kicker_title, y: "5-13%"}
+      - {name: problem, y: "14-26%"}
+      - {name: evidence_or_table, y: "29-54%"}
+      - {name: method_steps, y: "56-78%"}
+      - {name: self_check_prompt, y: "80-91%"}
+
+  build:
+    zones:
+      - {name: kicker_title, y: "5-13%"}
+      - {name: formula_or_table, y: "15-35%"}
+      - {name: difficulty_cards, y: "38-51%"}
+      - {name: quote, y: "53-61%"}
+      - {name: example_prompt, y: "63-76%"}
+      - {name: iteration_rule, y: "78-89%"}
+
+  recap:
+    zones:
+      - {name: kicker_title, y: "5-13%"}
+      - {name: checklist, y: "15-47%"}
+      - {name: final_concept, y: "49-64%"}
+      - {name: source_note, y: "66-78%"}
+      - {name: cta_bar, y: "80-88%"}
