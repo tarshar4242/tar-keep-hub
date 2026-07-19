@@ -1,0 +1,30 @@
+project:
+  title: "{手冊名稱}"
+  subtitle: "{一句副標}"
+  audience: "{目標讀者}"
+  goal: "{讀完後要能做什麼}"
+  target_pages: 12
+  output: "PDF"
+
+source:
+  files: []
+  urls: []
+  notes: []
+
+brand:
+  owner: "Tarshar"
+  logo_text: "🍀 Learn AI with Tarshar｜2026"
+  primary_accent: "amber"
+
+constraints:
+  language: "zh-TW"
+  source_citations: true
+  distinguish_original_vs_extension: true
+  include_copyable_prompts: true
+  include_final_checklist: true
+
+preferred_structure:
+  chapters: 3
+  chapter_names: []
+  must_include_topics: []
+  must_exclude_topics: []
