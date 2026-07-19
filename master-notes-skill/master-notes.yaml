@@ -1,0 +1,384 @@
+schema_version: "1.0"
+skill_name: "大師筆記 Master Notes"
+intent: >
+  將課程、書籍、研究報告、演講、會議、長文或多來源資料，轉換成一份可閱讀、可複習、可直接抄走方法的高密度 A4 筆記手冊。
+  核心不是逐字摘要，而是「重新教學設計」：先建立全局地圖，再拆核心差異、原理、方法、案例、模板與收尾檢核。
+
+source_reference:
+  observed_document:
+    title: "AI 高手養成筆記・完整版"
+    format: "A4 直式 PDF"
+    pages: 14
+    content_arc:
+      - "封面／定位"
+      - "Overview／課程地圖"
+      - "差距篇／核心分水嶺"
+      - "心法與決策表"
+      - "誠實篇／問題診斷與評分規則"
+      - "寫作篇／流程化方法"
+      - "動手篇／圖像、App、資料分析"
+      - "Recap／全書檢核清單"
+
+brand:
+  default_owner: "Tarshar"
+  default_logo_text: "🍀 Learn AI with Tarshar｜2026"
+  allow_override: true
+  placement:
+    interior_footer: "左下品牌／右下頁碼"
+    final_cta: "深色橫條內放品牌與 CTA"
+
+page_system:
+  size: "A4 portrait"
+  dimensions_mm: [210, 297]
+  base_grid:
+    columns: 12
+    content_width_percent: 84
+    left_right_margin_mm: 18
+    top_margin_mm: 18
+    bottom_margin_mm: 14
+    vertical_rhythm_px: [8, 12, 16, 24, 32]
+  density:
+    target_blocks_per_page: "3-6"
+    max_primary_ideas_per_page: 2
+    rule: "一頁只解一個主要問題，最多兩個高度相關的子題。"
+  footer:
+    enabled: true
+    height_mm: 8
+    font_size_pt: 7.5
+    color: "muted"
+
+visual_tokens:
+  palette:
+    paper: "#FEFCF8"
+    paper_alt: "#F7F0E4"
+    ink: "#2E2921"
+    ink_deep: "#3B3327"
+    muted: "#8F887D"
+    line: "#E6D9C6"
+    amber: "#D98A27"
+    amber_dark: "#B66A0C"
+    blue: "#1E5AA7"
+    blue_soft: "#EEF4FC"
+    green: "#1C7A35"
+    green_soft: "#EEF8EF"
+    red: "#D63E32"
+    red_soft: "#FFF1EF"
+    quote_soft: "#FAF1E2"
+    code_bg: "#332C23"
+    code_text: "#FFF8ED"
+  typography:
+    chinese_primary: ["Source Han Sans TC", "Noto Sans TC", "PingFang TC"]
+    latin_fallback: ["Inter", "Arial", "sans-serif"]
+    weights:
+      body: 400
+      emphasis: 600
+      title: 700
+    sizes_pt:
+      cover_eyebrow: 10
+      cover_title: 31
+      cover_subtitle: 13
+      page_kicker: 9
+      page_title: 20
+      section_title: 13
+      body: 10.5
+      table: 9.5
+      footnote: 7.5
+    line_height:
+      title: 1.22
+      body: 1.65
+      compact: 1.45
+  shape_language:
+    radius_px:
+      pill: 999
+      card: 10
+      code: 8
+    border_px: 1
+    shadow: "none"
+    style: "平面、乾淨、低陰影，以色塊、線條、留白建立層級"
+
+content_architecture:
+  global_story_arc:
+    - stage: "定位"
+      question: "這份筆記要解決什麼？為什麼值得看？"
+      output: ["一句主張", "三段篇章地圖", "來源／作者定位"]
+    - stage: "全局地圖"
+      question: "讀完整份會帶走什麼？"
+      output: ["課程地圖", "能力清單", "關鍵數字或核心觀念"]
+    - stage: "差距診斷"
+      question: "新手與高手差在哪？"
+      output: ["新手 vs 高手", "錯誤模式", "更好做法", "情境例子"]
+    - stage: "原理"
+      question: "為什麼這方法有效？"
+      output: ["原理說明", "引用／證據", "風險或限制"]
+    - stage: "方法"
+      question: "我明天可以怎麼做？"
+      output: ["步驟", "公式", "決策表", "可直接抄的模板"]
+    - stage: "應用"
+      question: "如何套到不同場景？"
+      output: ["工作", "學習", "創作", "資料分析", "生活決策"]
+    - stage: "回收"
+      question: "看完要記住什麼？"
+      output: ["Checklist", "最後觀念", "出處", "CTA"]
+
+  recurring_learning_loop:
+    - "概念：先說這頁要解的問題"
+    - "對比：錯誤與正確做法並列"
+    - "原理：補一個可理解的解釋或證據"
+    - "範例：加入貼近讀者的真實情境"
+    - "模板：提供可直接複製的 prompt／句式／步驟"
+    - "提醒：補限制、風險、驗證點"
+
+component_library:
+  kicker_pill:
+    purpose: "標示篇章或頁面類型"
+    anatomy: ["短文字", "圓角膠囊", "白字或深色字"]
+    colors:
+      default: "amber"
+      chapter_2: "blue"
+      chapter_3: "green"
+  page_title:
+    purpose: "一句話說清本頁問題"
+    rule: "12-18 個中文字內，避免抽象名詞堆疊"
+    underline: "細 amber 橫線貫穿主內容寬度"
+  section_heading:
+    purpose: "拆分同頁子題"
+    style: "amber_dark + semibold"
+  compare_cards:
+    purpose: "新手／高手、錯誤／正確、方案 A／B"
+    layout: "雙欄 1:1"
+    negative:
+      bg: "red_soft"
+      border: "red"
+      icon: "❌"
+    positive:
+      bg: "green_soft"
+      border: "green"
+      icon: "✅"
+  example_box:
+    purpose: "作者／講師延伸情境、讀者可套用範例"
+    bg: "blue_soft"
+    border: "#B7CDEB"
+    header: "💡 {品牌名}的範例（{情境}）"
+    nested_prompt_block: true
+  prompt_block:
+    purpose: "可直接複製的 prompt、指令、公式"
+    bg: "code_bg"
+    text: "code_text"
+    style: "深色圓角長條，單段或短清單"
+  quote_callout:
+    purpose: "核心句、作者原話、觀念定錨"
+    bg: "quote_soft"
+    left_border: "amber"
+    structure: ["中文轉述", "短引文（可選）", "來源"]
+  table:
+    purpose: "決策矩陣、對照、步驟、能力清單"
+    header_bg: "ink_deep"
+    header_text: "white"
+    body_row_fill: ["paper", "paper_alt"]
+    border: "line"
+    rule: "每格最多 2-3 行，避免小字塞滿"
+  warning:
+    purpose: "風控、陷阱、限制"
+    icon: "⚠️"
+    emphasis: "粗體關鍵詞 + 短解釋"
+  checklist:
+    purpose: "收尾複習與行前自檢"
+    icon: "□ / ☑"
+    item_style: "一題一行，以可回答的是非句呈現"
+  final_cta_bar:
+    purpose: "品牌收尾"
+    bg: "ink_deep"
+    left: "CTA 短句"
+    right: "白色膠囊品牌／社群識別"
+
+page_archetypes:
+  - id: "cover"
+    use_when: "第一頁"
+    blocks:
+      - "品牌 eyebrow"
+      - "大標題 + 版本"
+      - "來源／課程／作者一句介紹"
+      - "3 個篇章橫條"
+      - "人物／來源介紹卡"
+      - "版權／免責／日期"
+      - "CTA"
+    visual: "深咖啡全版底 + 琥珀色重點"
+  - id: "overview"
+    use_when: "第二頁或章節前"
+    blocks:
+      - "這份內容在講什麼"
+      - "一個核心主張 quote"
+      - "課程／內容地圖表"
+      - "讀者會帶走的能力表"
+      - "一個關鍵數字或記憶錨點"
+  - id: "compare"
+    use_when: "需要呈現差異、錯誤 vs 正確"
+    blocks:
+      - "本頁主題"
+      - "子題 1：雙欄比較"
+      - "延伸情境 example_box"
+      - "子題 2：原理 quote + 雙欄比較"
+      - "延伸情境 example_box"
+  - id: "principles"
+    use_when: "3-4 個原則、心法、規則"
+    blocks:
+      - "逐條原則"
+      - "每條 1 個原理／來源"
+      - "每 1-2 條加入情境例"
+      - "最後補限制或轉折"
+  - id: "matrix"
+    use_when: "要做決策、工具選擇、分類"
+    blocks:
+      - "比較表"
+      - "一句口訣"
+      - "判斷規則"
+      - "陷阱／風險"
+      - "可直接抄的 prompt"
+  - id: "method"
+    use_when: "教一套方法或工作流"
+    blocks:
+      - "問題背景"
+      - "失敗特徵或風險表"
+      - "4-6 步驟方法"
+      - "自檢 prompt"
+  - id: "build"
+    use_when: "工具實作、產品、App、分析"
+    blocks:
+      - "核心公式／三要素"
+      - "表格拆解"
+      - "容易 vs 困難"
+      - "引用或心法"
+      - "實例 prompt"
+      - "迭代規則"
+  - id: "recap"
+    use_when: "最後一頁"
+    blocks:
+      - "8-12 題 checklist"
+      - "收尾模型／核心觀念"
+      - "短引用"
+      - "出處與延伸"
+      - "CTA bar"
+
+writing_rules:
+  language: "台灣繁體中文"
+  voice:
+    - "像高手教練，不像教科書"
+    - "句子短，先結論後解釋"
+    - "每頁要有一個可帶走的動作"
+    - "避免空泛讚美與過度行銷語"
+  forbidden_patterns:
+    - "大段逐字稿搬運"
+    - "每頁都是純條列"
+    - "同一種卡片連續出現超過 3 次"
+    - "只有概念沒有案例"
+    - "只有案例沒有抽象原則"
+    - "為了塞內容把內文字縮到難讀"
+    - "把作者原文與整理者延伸混在一起不標示"
+  source_integrity:
+    rules:
+      - "明確區分：原作者觀念／整理者解讀／自創範例"
+      - "數字、研究、引言需保留來源欄位"
+      - "無法確認的資訊標示待查證，不可補腦"
+
+transformation_pipeline:
+  step_1_ingest:
+    action: "讀完所有來源，建立來源索引"
+    output: ["核心主張", "章節", "概念", "案例", "數字", "引用", "可操作方法", "限制"]
+  step_2_extract:
+    action: "把素材拆成 knowledge atoms"
+    atom_schema:
+      - "id"
+      - "type: claim|principle|example|quote|data|method|risk|prompt"
+      - "source"
+      - "importance: 1-5"
+      - "novelty: 1-5"
+      - "actionability: 1-5"
+  step_3_prioritize:
+    scoring_formula: "importance*0.4 + novelty*0.25 + actionability*0.35"
+    rule: "只保留高分內容進主頁，低分內容進附錄或刪除"
+  step_4_outline:
+    action: "先產 2-3 個手冊大綱，再選最清楚的一版"
+    mandatory_arc: ["定位", "地圖", "差距／問題", "原理", "方法", "應用", "檢核"]
+  step_5_page_map:
+    action: "每頁分配一個核心問題，選 page_archetype"
+    rule: "同類型頁面不可連續超過 2 頁，避免視覺疲勞"
+  step_6_write:
+    action: "先寫標題與區塊標題，再填正文"
+    rule: "標題本身要能獨立構成完整摘要"
+  step_7_visualize:
+    action: "將抽象內容轉成比較卡、矩陣、流程、公式、checklist"
+  step_8_quality_gate:
+    action: "用 rubric 評分，低於門檻必須重寫"
+  step_9_export:
+    formats: ["PDF", "PPTX/Canva 可編輯版", "Markdown/YAML 結構稿"]
+
+quality_rubric:
+  total: 100
+  categories:
+    - name: "結構清晰"
+      points: 20
+      checks:
+        - "目錄／地圖能在 30 秒內理解全書"
+        - "每頁只有一個主問題"
+        - "章節有明確起承轉合"
+    - name: "內容含金量"
+      points: 20
+      checks:
+        - "至少 30% 內容是可直接執行的方法、模板或檢核"
+        - "重要主張有來源或明確標示為整理者觀點"
+    - name: "案例轉譯"
+      points: 15
+      checks:
+        - "每 2-3 頁至少 1 個真實情境"
+        - "案例與原理能互相對照"
+    - name: "視覺層級"
+      points: 15
+      checks:
+        - "標題／章節／正文／備註一眼可分"
+        - "色彩用於語意，不只是裝飾"
+    - name: "可讀性"
+      points: 15
+      checks:
+        - "內文字級不小於 10pt"
+        - "無過長段落、無塞滿整頁"
+        - "表格欄寬與對齊一致"
+    - name: "可複用性"
+      points: 15
+      checks:
+        - "讀者至少能抄走 3 個模板／句式／流程"
+        - "最後有 checklist 或行動清單"
+  pass_score: 85
+
+output_contract:
+  required_deliverables:
+    - "01_outline.md：全書頁面地圖"
+    - "02_content.yaml：逐頁內容結構"
+    - "03_design.yaml：視覺與元件規格"
+    - "04_final：PDF 或可編輯版"
+  each_page_schema:
+    fields:
+      - "page_no"
+      - "archetype"
+      - "chapter"
+      - "kicker"
+      - "title"
+      - "key_takeaway"
+      - "blocks[]"
+      - "source_refs[]"
+      - "visual_notes"
+      - "footer"
+
+adaptive_rules:
+  by_length:
+    short_6_8_pages:
+      arc: ["封面", "總覽", "3-4 個核心頁", "方法／模板", "Recap"]
+    standard_10_16_pages:
+      arc: ["封面", "Overview", "2-3 章", "每章 3-5 頁", "Recap"]
+    long_20_plus_pages:
+      rule: "增加章節首頁與章末小結，不要單純增加文字密度"
+  by_content_type:
+    course: "模組地圖 + 核心概念 + 練習／prompt"
+    book: "主張地圖 + 章節論點 + 反例 + 行動"
+    research: "問題 + 方法 + 證據 + 限制 + 實務意義"
+    meeting: "背景 + 決策 + 爭點 + 行動 + 責任人"
+    tool_guide: "場景 + 能力 + 操作 + 範例 + 陷阱 + checklist"
